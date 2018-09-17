@@ -1,2 +1,2 @@
 # PUI2018_aaw329
-Principles of Urban Informatics, fall 2018
+Public repository for Principles of Urban Informatics homework
