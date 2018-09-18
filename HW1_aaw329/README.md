@@ -1,7 +1,9 @@
-##Homework 1
+## Homework 1
 
-Setting up my .bash_profile
+Setting up my .bash_profile:
+
 ![.bash_profile screenshot](bash_profile.png)
 
-Demonstrating that the alias is functional
+Demonstrating that the alias is functional:
+
 ![alias screenshot](alias.png)
