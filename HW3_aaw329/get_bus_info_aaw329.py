@@ -49,52 +49,36 @@ lines = ["Latitude,Longitude,Stop Name,Stop Status"]
 
 # Append a line with the appropriate information for each bus
 for i in range(bus_count):
-    latitude = (bus_dict["Siri"]
-                        ["ServiceDelivery"]
-                        ["VehicleMonitoringDelivery"]
-                        [0]
-                        ["VehicleActivity"]
-                        [i]
-                        ["MonitoredVehicleJourney"]
-                        ["VehicleLocation"]
-                        ["Latitude"])
-    longitude = (bus_dict["Siri"]
-                         ["ServiceDelivery"]
-                         ["VehicleMonitoringDelivery"]
-                         [0]
-                         ["VehicleActivity"]
-                         [i]
-                         ["MonitoredVehicleJourney"]
-                         ["VehicleLocation"]
-                         ["Longitude"])
+
+    one_bus_dict = (bus_dict["Siri"]
+                            ["ServiceDelivery"]
+                            ["VehicleMonitoringDelivery"]
+                            [0]
+                            ["VehicleActivity"]
+                            [i])
+
+    latitude = (one_bus_dict["MonitoredVehicleJourney"]
+                            ["VehicleLocation"]
+                            ["Latitude"])
+    longitude = (one_bus_dict["MonitoredVehicleJourney"]
+                             ["VehicleLocation"]
+                             ["Longitude"])
     try:
-        stop_name = (bus_dict["Siri"]
-                             ["ServiceDelivery"]
-                             ["VehicleMonitoringDelivery"]
-                             [0]
-                             ["VehicleActivity"]
-                             [i]
-                             ["MonitoredVehicleJourney"]
-                             ["OnwardCalls"]
-                             ["OnwardCall"]
-                             [0]
-                             ["StopPointName"])
+        stop_name = (one_bus_dict["MonitoredVehicleJourney"]
+                                 ["OnwardCalls"]
+                                 ["OnwardCall"]
+                                 [0]
+                                 ["StopPointName"])
     except KeyError:
         stop_name = "N/A"
     try:
-        stop_status = (bus_dict["Siri"]
-                               ["ServiceDelivery"]
-                               ["VehicleMonitoringDelivery"]
-                               [0]
-                               ["VehicleActivity"]
-                               [i]
-                               ["MonitoredVehicleJourney"]
-                               ["OnwardCalls"]
-                               ["OnwardCall"]
-                               [0]
-                               ["Extensions"]
-                               ["Distances"]
-                               ["PresentableDistance"])
+        stop_status = (one_bus_dict["MonitoredVehicleJourney"]
+                                   ["OnwardCalls"]
+                                   ["OnwardCall"]
+                                   [0]
+                                   ["Extensions"]
+                                   ["Distances"]
+                                   ["PresentableDistance"])
     except KeyError:
         stop_status = "N/A"
 
