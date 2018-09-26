@@ -40,7 +40,7 @@ try:
                             [0]
                             ["VehicleActivity"])
 except KeyError:
-    print("Invalid bus line requested.")
+    sys.stderr.write("Invalid bus line requested.\n")
     sys.exit(1)
 print("There are %d active busses" % bus_count)
 
