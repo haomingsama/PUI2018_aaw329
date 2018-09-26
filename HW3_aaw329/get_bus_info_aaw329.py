@@ -18,6 +18,7 @@ bus_line = sys.argv[2]
 url = ("http://api.prod.obanyc.com/api/siri/vehicle-monitoring.json"
        "?key=%s"
        "&LineRef=%s"
+       "&VehicleMonitoringDetailLevel=calls"  # Needed to get future stop info
        % (api_key, bus_line))
 
 # Testing with a JSON file locally
@@ -66,26 +67,36 @@ for i in range(bus_count):
                          ["MonitoredVehicleJourney"]
                          ["VehicleLocation"]
                          ["Longitude"])
-    stop_name = (bus_dict["Siri"]
-                         ["ServiceDelivery"]
-                         ["VehicleMonitoringDelivery"]
-                         [0]
-                         ["VehicleActivity"]
-                         [i]
-                         ["MonitoredVehicleJourney"]
-                         ["MonitoredCall"]
-                         ["StopPointName"])
-    stop_status = (bus_dict["Siri"]
-                           ["ServiceDelivery"]
-                           ["VehicleMonitoringDelivery"]
-                           [0]
-                           ["VehicleActivity"]
-                           [i]
-                           ["MonitoredVehicleJourney"]
-                           ["MonitoredCall"]
-                           ["Extensions"]
-                           ["Distances"]
-                           ["PresentableDistance"])
+    try:
+        stop_name = (bus_dict["Siri"]
+                             ["ServiceDelivery"]
+                             ["VehicleMonitoringDelivery"]
+                             [0]
+                             ["VehicleActivity"]
+                             [i]
+                             ["MonitoredVehicleJourney"]
+                             ["OnwardCalls"]
+                             ["OnwardCall"]
+                             [0]
+                             ["StopPointName"])
+    except KeyError:
+        stop_name = "N/A"
+    try:
+        stop_status = (bus_dict["Siri"]
+                               ["ServiceDelivery"]
+                               ["VehicleMonitoringDelivery"]
+                               [0]
+                               ["VehicleActivity"]
+                               [i]
+                               ["MonitoredVehicleJourney"]
+                               ["OnwardCalls"]
+                               ["OnwardCall"]
+                               [0]
+                               ["Extensions"]
+                               ["Distances"]
+                               ["PresentableDistance"])
+    except KeyError:
+        stop_status = "N/A"
 
     lines.append("%2.6f,%2.6f,%s,%s" % (latitude,
                                         longitude,
