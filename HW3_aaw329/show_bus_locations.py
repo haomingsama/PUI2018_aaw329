@@ -33,11 +33,15 @@ data = response.read().decode("utf-8")
 bus_dict = json.loads(data)
 
 # Find number of busses
-bus_count = len(bus_dict["Siri"]
-                        ["ServiceDelivery"]
-                        ["VehicleMonitoringDelivery"]
-                        [0]
-                        ["VehicleActivity"])
+try:
+    bus_count = len(bus_dict["Siri"]
+                            ["ServiceDelivery"]
+                            ["VehicleMonitoringDelivery"]
+                            [0]
+                            ["VehicleActivity"])
+except KeyError:
+    print("Invalid bus line requested.")
+    sys.exit(1)
 print("There are %d active busses" % bus_count)
 
 # For each bus, print the coordinates of the bus
