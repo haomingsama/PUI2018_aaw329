@@ -15,7 +15,8 @@ if len(sys.argv) != 3:
 api_key  = sys.argv[1]
 bus_line = sys.argv[2]
 
-print("Gathering info for bus line: %s" % bus_line)
+#print("Gathering info for bus line: %s" % bus_line)
+print("Bus Line : %s" % bus_line)
 
 # Build URL based on API key and requested bus line
 url = ("http://api.prod.obanyc.com/api/siri/vehicle-monitoring.json"
@@ -42,7 +43,8 @@ try:
 except KeyError:
     sys.stderr.write("Invalid bus line requested.\n")
     sys.exit(1)
-print("There are %d active busses" % bus_count)
+#print("There are %d active busses" % bus_count)
+print("Number of Active Buses : %d" % bus_count)
 
 # For each bus, print the coordinates of the bus
 for i in range(bus_count):
@@ -64,6 +66,7 @@ for i in range(bus_count):
                          ["MonitoredVehicleJourney"]
                          ["VehicleLocation"]
                          ["Longitude"])
-    print("Bus ID %d is at latitude/longitude (%2.6f,%2.6f)" 
+    #print("Bus %d is at latitude/longitude (%2.6f,%2.6f)" 
+    print("Bus %d is at latitude %2.6f and longitude %2.6f" 
           % (i, latitude, longitude))
 
