@@ -14,9 +14,9 @@ Find three research papers that make use of three different types of statistical
 
 The main plots of each article, in order.
 
-![article1_plot.png]
-![article2_plot.png]
-![article3_plot.png]
+![First article's plot](article1_plot.png)
+![Second article's plot](article2_plot.png)
+![Third article's plot](article3_plot.png)
 
 ## Assignment 3
 
