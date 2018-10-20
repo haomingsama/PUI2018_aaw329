@@ -20,4 +20,6 @@ The main plots of each article, in order.
 
 ## Assignment 3
 
+Calculate z-test and chi-squared statistics to draw conclusions about data in the [New York: Center for Employment Opportunities Study](https://www.mdrc.org/sites/default/files/What%20Strategies%20Work%20for%20the%20Hard%20FR.pdf).
+
 ## Assignment 4
