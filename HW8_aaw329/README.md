@@ -1,6 +1,6 @@
 ## Assignment 1
 
-With urban-related data of my choice, create a plot a la the visualization lecture. For this, I chose to use Vision Zero traffic crash data.
+With urban-related data of my choice, [create a plot](https://github.com/aawerner/PUI2018_aaw329/blob/master/HW8_aaw329/HW8_1_aaw329.ipynb) a la the visualization lecture. For this, I chose to use Vision Zero traffic crash data.
 
 ![Plot for assignment 1](plot.png)
 
