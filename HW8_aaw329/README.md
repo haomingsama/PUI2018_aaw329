@@ -8,7 +8,9 @@ With urban-related data of my choice, [create a plot](https://github.com/aawerne
 
 
 Review by Haoming Yang (hy1528):
+
 Here is my review about the visulization
+
 **CLARITY**: 
 The plot is a bar chart showing the fatalities in traffic crash from 2009 to 2018(incomplete).
 It is simple and easy to read. The title,labels and caption are clearly stated. It also inlcues the measure of unit in the caption in case that people get confused about the number on the vertical axis. This plot is very clear.
@@ -22,7 +24,9 @@ The graph may have a weakness that it shows incomplete data on the bar 2018. Thi
 
 
 Summary for the improvement:
+
 1. Consider line chart in showing the trend. it will be more succinct.
+
 2. Consider changing the 2018 bar into more specific one(showing number of months included in the data)
 
 Thank you.
